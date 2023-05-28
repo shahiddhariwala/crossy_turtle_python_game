@@ -1,3 +1,4 @@
+import random
 from turtle import Screen
 from player import Player
 from car import Car
@@ -12,8 +13,7 @@ screen.setup(width=600, height=500)
 screen.tracer(0)
 
 is_game_on = True
-
-car_1 = Car((270, 220))
+car_list = []
 player = Player()
 score_board = ScoreBoard()
 
@@ -21,11 +21,15 @@ screen.listen()
 
 screen.onkey(player.move, "Up")
 screen.onkey(player.move, "w")
-
+car_counter = 0
 while is_game_on:
     time.sleep(0.1)
     screen.update()
+    car_counter += 1
 
+    if car_counter % 6 == 0:
+        new_car = Car((270, random.choice(range(-220, 220, 20))))
+        car_list.append(new_car)
     # Player reached top
     if player.ycor() > 230:
         score_board.update_level()
