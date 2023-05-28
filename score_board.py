@@ -19,7 +19,7 @@ class ScoreBoard(turtle.Turtle):
 
     def update_level(self):
         self.level += 1
-        self.game_speed *= 0.9
+        self.game_speed *= 0.8
         self.update_score_board()
 
     def game_over(self):
