@@ -23,7 +23,7 @@ screen.onkey(player.move, "Up")
 screen.onkey(player.move, "w")
 car_counter = 0
 while is_game_on:
-    time.sleep(0.1)
+    time.sleep(score_board.game_speed)
     screen.update()
     car_counter += 1
 
@@ -33,11 +33,13 @@ while is_game_on:
 
     for car in car_list:
         car.move()
-        if car.distance(player) < 50:
+
+        # Car collision detection
+        if car.distance(player) < 20:
             score_board.game_over()
             is_game_on = False
 
-    # Player reached top
+    # Player reached top detection
     if player.ycor() > 230:
         score_board.update_level()
         player.reset_player_pos()
