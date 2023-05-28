@@ -28,8 +28,15 @@ while is_game_on:
     car_counter += 1
 
     if car_counter % 6 == 0:
-        new_car = Car((270, random.choice(range(-220, 220, 20))))
+        new_car = Car((270, random.choice(range(-200, 200, 20))))
         car_list.append(new_car)
+
+    for car in car_list:
+        car.move()
+        if car.distance(player) < 50:
+            score_board.game_over()
+            is_game_on = False
+
     # Player reached top
     if player.ycor() > 230:
         score_board.update_level()

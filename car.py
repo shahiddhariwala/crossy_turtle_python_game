@@ -13,3 +13,6 @@ class Car(Turtle):
         self.setheading(180)
         self.shapesize(stretch_wid=1, stretch_len=5)
         self.goto(position)
+
+    def move(self, speed = 10):
+        self.forward(speed)
