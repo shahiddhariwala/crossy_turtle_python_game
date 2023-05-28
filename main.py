@@ -1,16 +1,17 @@
-# This is a sample Python script.
+from turtle import Screen
+from car import Car
+screen = Screen()
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+screen.title("Crossy turtle")
+screen.setup(width=600, height=500)
+screen.tracer(0)
+
+is_game_on = True
+
+car_1 = Car((270, 220))
+
+while is_game_on:
+    screen.update()
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+screen.exitonclick()
